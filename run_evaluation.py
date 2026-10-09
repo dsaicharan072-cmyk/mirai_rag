@@ -13,7 +13,8 @@ from langchain_chroma import Chroma
 try:
     from langchain_classic.retrievers.multi_query import MultiQueryRetriever
 except ImportError:
-    from langchain_community.retrievers.multi_query import MultiQueryRetriever
+    import importlib
+    MultiQueryRetriever = importlib.import_module("langchain.retrievers.multi_query").MultiQueryRetriever
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
